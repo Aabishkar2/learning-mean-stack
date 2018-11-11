@@ -3,8 +3,46 @@
    <head>
       <title>Hello Handlebars</title>
    </head>
-   
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <body>
-      <p class = "greetings" id = "people">Hello World!</p>
+     {{#if user}}
+      <p class = "greetings" id = "people">Hello {{ user.name }}. Your age is {{ user.age }}</p>
+     {{else}}
+      <p class = "greetings" id = "people">Hello {{ default.name }}. Your age is {{ default.age }}</p>
+    {{/if}}
+    <hr>
+
+    <div class="panel-body">
+    <form method="post" action="/student/">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            <label> Name </label>
+            <input type="text" class="form-control" name="name" value="">
+          </div>
+          <div class="col-sm-4">
+            <label> Gender </label>
+              <input type="radio" class="form-control" name="gender" value="male"> Male
+              <input type="radio" class="form-control" name="gender" value="female"> Female
+          </div>
+          <div class="col-md-4">
+            <label> DOB </label>
+            <input type="date" class="form-control" name="dob" value="">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+          <button type="submit" class="btn btn-info waves-effect waves-light">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
    </body>
 </html>
